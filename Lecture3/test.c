@@ -36,10 +36,10 @@ load_integers(const char *filename)
 	FILE *f = fopen(filename, "r");
 	if (f == NULL)
 	{
-		err(-1, "Failed to open '%s'", filename);
+		err(-1, "Failed to open '%s'", filename); // %s means string, so this just means failed to open string.
 	}
 
-        printf("Loading %u B into array at %p...\n", file_size, data);
+        printf("Loading %u B into array at %p...\n", file_size, data); //Loading an unsigned int 
 
 	int bytes = fread(data, sizeof(int), file_size / sizeof(int), f);
 	if (bytes < 0)

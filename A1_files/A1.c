@@ -16,8 +16,8 @@ void bar(const char *buffer, int len)
 
 int main()
 {
-	char message[16];
-	strcpy(message, "Hello, world!\n");
+	char message[16]; // creates a 16-byte array of chars called message
+	strcpy(message, "Hello, world!\n"); //copies "Hello, World!" into message
 	int len = strnlen(message, sizeof(message));
 
 	bar(message, len);
