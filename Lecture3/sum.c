@@ -42,14 +42,14 @@ sum_integers(const char *filename)
 	}
 
 	printf("Reading size...");
-	int bytes = fread(&n, sizeof(n), 1, f);
+	int bytes = fread(&n, sizeof(n), 1, f); //first number that has the size of an int read from f is the number of bytes, n
 	if (bytes != 1)
 	{
 		err(-1, "Error reading size from '%s'", filename);
 	}
 
 	printf("Loading %u numbers into array at %p...\n", n, data);
-	bytes = fread(data, sizeof(int), n, f);
+	bytes = fread(data, sizeof(int), n, f); // the next n bytes are read from f that are the size of an int are stored in data.
 	if (bytes < 0)
 	{
 		err(-1, "Error reading from '%s'", filename);
@@ -58,8 +58,8 @@ sum_integers(const char *filename)
 	printf("Calculating sum of %d integers:\n", bytes);
 	for (int i = 0; i < bytes; i++)
 	{
-		printf("%3d:  0x%02x\n", i, data[i]);
-		sum += data[i];
+		printf("%3d:  0x%02x\n", i, data[i]); // outputs the number stored at this element of data
+		sum += data[i]; // addes that number to the sum
 	}
 
 	printf("\nDone.\n");

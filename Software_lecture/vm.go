@@ -25,5 +25,5 @@ func main() {
 
 	z := Foo()
 	fmt.Printf(" z:  %p\n", z)
-	fmt.Printf("*z:  %p\n", *z)
+	fmt.Printf("*z:  %p\n", *z) // jst means what z is pointing to but with weird go syntax.
 }

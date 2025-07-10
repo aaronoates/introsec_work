@@ -7,7 +7,9 @@ int main()
 {
 	cout << "C++ pointer demo" << endl << endl;
 
-	cout << "&main:   " << reinterpret_cast<void*>(&main) << endl << endl;
+	void* addMain = reinterpret_cast<void*>(&main);
+
+	cout << "&main:   " << addMain << endl << endl;
 
 	cout << " x:      " << x << endl;
 
@@ -35,12 +37,17 @@ int main()
 	*/
 
 	// Assign to z[0]:
-	*z = 100;
-	cout << *z << endl;
+	z[0] = 100;
+	z[1] = 200;
+	for (int i = 0; i < 10; i++){
+		cout << "*(z+" << i << "):   " << *(z+i) << endl;
+	}
+	
+
 
 	// How about a C++ use-after-free?
 	delete [] z;
-	cout << *z << endl;
+	cout << *z << endl; //segmentation fault
 
 	return 0;
 }
